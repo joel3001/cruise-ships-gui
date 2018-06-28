@@ -1,0 +1,17 @@
+{
+  "name": "cruise-ships",
+  "version": "1.0.0",
+  "description": "Navigating a cruise ship",
+  "main": "cruise.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Joel Goodwin",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.0.1",
+    "eslint-config-mcr-codes": "^1.1.0",
+    "eslint-plugin-import": "^2.13.0",
+    "jest": "^23.2.0"
+  }
+}
