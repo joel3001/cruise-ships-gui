@@ -1,7 +1,7 @@
-const Depart = require('../src/cruise.js')
+const Departure = require('../src/cruise.js')
 
 describe('constructor', () => {
   it('returns an object', () => {
-      expect(new Depart('Bristol')).toBeInstanceOf(Object);
+      expect(new Departure('Bristol')).toBeInstanceOf(Object);
     });
 });

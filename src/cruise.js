@@ -1,9 +1,9 @@
-function Depart(port) {
+function Departure (port) {
 
-    this.port = port;
+    this.startingPort = port;
     this.captain = 'Joel';
     this.passengers = 0;
     
 };
 
-module.exports = Depart;
+module.exports = Departure;
