@@ -1,9 +1,19 @@
-function Departure (port) {
+function Ship (port) {
 
-    this.startingPort = port;
-    this.captain = 'Joel';
-    this.passengers = 0;
-    
+    this.currentPort = port;
+
 };
 
-module.exports = Departure;
+Ship.prototype.setSail = function () {
+
+    this.currentPort = ''
+
+};
+
+Ship.prototype.dock = function (port) {
+
+    this.currentPort = port;
+
+};
+
+module.exports = Ship;
