@@ -6,7 +6,8 @@ describe('constructor', () => {
     });
 
   it('returns name of port', () => {
-    const port = new Port('Dover')
+    const port = new Port('Dover');
+
     expect(port.name).toEqual('Dover');
     });
 });
