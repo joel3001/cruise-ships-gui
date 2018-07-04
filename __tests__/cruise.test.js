@@ -19,6 +19,14 @@ describe('constructor', () => {
 
     expect(ship.currentPort).toBe(port);
   });
+
+  it('gets added to port on instination', () => {
+    const port = new Port('Dover');
+    const itinerary = new Itinerary([port])
+    const ship = new Ship(itinerary);
+
+    expect(port.ships).toContain(ship);
+  });
   
 });
 
@@ -32,6 +40,7 @@ describe('setSail', () => {
     ship.setSail();
 
     expect(ship.currentPort).toBeFalsy();
+    expect(dover.ships).not.toContain(ship);
     });
 
     it('can\'t sail further than itinerary', () => {
@@ -59,6 +68,7 @@ describe('dock', () => {
     ship.dock();
 
     expect(ship.currentPort).toBe(calais);
+    expect(calais.ships).toContain(ship);
     });
 
 });
