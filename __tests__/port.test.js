@@ -1,29 +1,36 @@
 const Port = require('../src/port.js')
 
 describe('constructor', () => {
+  describe('with ports and ships', () => {
+    let port;
+    let titanic;
+    let queenMary
+
+    beforeEach(() => {
+
+      port = new Port('Dover');
+      titanic = {};
+      queenMary = {};
+    });
+
+  
   it('returns an object', () => {
     expect(new Port('Dover')).toBeInstanceOf(Object);
     });
 
   it('returns name of port', () => {
-    const port = new Port('Dover');
-
     expect(port.name).toEqual('Dover');
-    });
+  
+  });
 
   it('can add a ship', () => {
-    const port = new Port('Dover');
-    const ship = {}
 
-    port.addShip(ship)
+    port.addShip(titanic)
   
-    expect(port.ships).toContain(ship);
+    expect(port.ships).toContain(titanic);
     }); 
 
   it('can add a ship', () => {
-    const port = new Port('Dover');
-    const titanic = {};
-    const queenMary = {};
 
     port.addShip(titanic);
     port.addShip(queenMary);
@@ -31,6 +38,6 @@ describe('constructor', () => {
     
     expect(port.ships).toEqual([titanic]);
     }); 
-
+  });
 });
 
