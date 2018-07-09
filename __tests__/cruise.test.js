@@ -4,15 +4,30 @@ const Itinerary = require('../src/itinerary.js')
 
 describe('Ship', () => {
   describe('with ports and an itinerary', () => {
+
     let ship;
     let dover;
     let calais;
     let itinerary;
 
     beforeEach(() => {
+      const port = {
+        removeShip: jest.fn(),
+        addShip: jest.fn(),
+      };
 
-      dover = new Port('Dover');
-      calais = new Port('Calais')
+      dover = {
+        ...port,
+        name: 'Dover',
+        ships:[]
+      };
+
+      calais = {
+        ...port,
+        name: 'Calais',
+        ships: []
+      };
+     
       itinerary = new Itinerary([dover, calais])
       ship = new Ship(itinerary);
 
@@ -32,7 +47,7 @@ describe('Ship', () => {
 
     it('gets added to port on instination', () => {
 
-      expect(dover.ships).toContain(ship);
+      expect(dover.addShip).toHaveBeenCalledWith(ship);
     });
   
     it('can set sail', () => {
@@ -40,7 +55,7 @@ describe('Ship', () => {
       ship.setSail();
   
       expect(ship.currentPort).toBeFalsy();
-      expect(dover.ships).not.toContain(ship);
+      expect(dover.removeShip).toHaveBeenCalledWith(ship);
       });
   
     it('can\'t sail further than itinerary', () => {
@@ -57,7 +72,7 @@ describe('Ship', () => {
       ship.dock();
     
       expect(ship.currentPort).toBe(calais);
-      expect(calais.ships).toContain(ship);
+      expect(calais.addShip).toHaveBeenCalledWith(ship);
       });
   });
 });
