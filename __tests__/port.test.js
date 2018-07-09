@@ -9,8 +9,8 @@ describe('constructor', () => {
     beforeEach(() => {
 
       port = new Port('Dover');
-      titanic = {};
-      queenMary = {};
+      titanic = jest.fn();
+      queenMary = jest.fn();
     });
 
   
@@ -30,13 +30,13 @@ describe('constructor', () => {
     expect(port.ships).toContain(titanic);
     }); 
 
-  it('can add a ship', () => {
+  it('can remove a ship', () => {
 
     port.addShip(titanic);
     port.addShip(queenMary);
-    port.removeShip(queenMary);
+    port.removeShip(titanic);
     
-    expect(port.ships).toEqual([titanic]);
+    expect(port.ships).toContain(queenMary);
     }); 
   });
 });
