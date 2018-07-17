@@ -36,7 +36,7 @@ describe('constructor', () => {
     port.addShip(queenMary);
     port.removeShip(titanic);
     
-    expect(port.ships).toContain(queenMary);
+    expect(port.ships).toEqual([queenMary]);
     }); 
   });
 });
