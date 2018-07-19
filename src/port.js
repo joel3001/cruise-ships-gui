@@ -1,3 +1,5 @@
+(function exportPort() {
+
 function Port (name) {
 
     this.name = name;
@@ -17,4 +19,11 @@ Port.prototype.removeShip = function (ship) {
     
 };
 
-module.exports = Port
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = Port;
+} else {
+  window.Port = Port
+}
+
+}());
+
